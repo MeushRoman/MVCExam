@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebApplication4.Models.QuestionModel>
+
+@{
+    ViewData["Title"] = "Тест";
+}
+<h3>Тест</h3>
+
+<script>
+   
+</script>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th style="width:10%">
+                ID
+            </th>
+            <th style="width:60%">
+                Вопрос
+            </th>
+            <th style="width:30%">
+               Ответ
+            </th>           
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr name="tableRow">
+            <td name ="qId">
+                <span class="sds">
+                    @Html.DisplayFor(modelItem => item.QuestionId)
+                </span>
+            </td>
+            <td name ="qText">
+                @Html.DisplayFor(modelItem => item.Question)
+            </td>
+            <td name ="qAnswer">
+                <input type="text" name="userAnswer" class="form-control center-block" value="" />
+            </td>           
+        </tr>
+}
+    </tbody>
+    <tfoot>
+        <td></td>
+        <td></td>
+        <td>
+            <input type="button" value="Click" id="FinishTest"  />
+            @*<a class="btn btn-light" id="FinishTest">Завершить тест</a>*@
+        </td>
+    </tfoot>
+</table>
+
