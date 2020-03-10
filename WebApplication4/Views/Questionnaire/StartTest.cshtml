@@ -6,9 +6,10 @@
 <h3>Тест</h3>
 
 <script>
-   
+
 </script>
 
+<p id="sId" hidden>@ViewBag.SurveyId</p>
 
 <table class="table">
     <thead>
@@ -20,34 +21,37 @@
                 Вопрос
             </th>
             <th style="width:30%">
-               Ответ
-            </th>           
+                Ответ
+            </th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr name="tableRow">
-            <td name ="qId">
-                <span class="sds">
-                    @Html.DisplayFor(modelItem => item.QuestionId)
-                </span>
-            </td>
-            <td name ="qText">
-                @Html.DisplayFor(modelItem => item.Question)
-            </td>
-            <td name ="qAnswer">
-                <input type="text" name="userAnswer" class="form-control center-block" value="" />
-            </td>           
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr name="tableRow">
+                <td name="qId">
+                    <span class="sds">
+                        @Html.DisplayFor(modelItem => item.QuestionId)
+                    </span>
+                </td>
+                <td name="qText">
+                    @Html.DisplayFor(modelItem => item.Question)
+                </td>
+                <td name="qAnswer">
+                    <input type="text" name="userAnswer" class="form-control center-block" value="" />
+                </td>
+            </tr>
+        }
     </tbody>
     <tfoot>
-        <td></td>
-        <td></td>
-        <td>
-            <input type="button" value="Click" id="FinishTest"  />
-            @*<a class="btn btn-light" id="FinishTest">Завершить тест</a>*@
-        </td>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>
+                <button type="button" value="Click" id="FinishTest">Завершить Тест</button>
+                @*<a class="btn btn-light" id="FinishTest">Завершить тест</a>*@
+            </td>
+        </tr>
     </tfoot>
 </table>
 

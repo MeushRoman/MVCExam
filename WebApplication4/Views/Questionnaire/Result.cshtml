@@ -1,0 +1,50 @@
+﻿@model WebApplication4.Models.ResultModel
+
+@{
+    ViewData["Title"] = "Result";
+}
+
+<h1>Результаты теста</h1>
+
+<style>
+    .h1, h1 {
+    font-size: 2.5rem;
+    text-align: center;
+}
+    .table {
+        width: 40%;
+        margin-bottom: 1rem;
+        color: #212529;
+        margin: 0 auto;
+    }
+</style>
+
+<div>
+    <hr />
+    <table class="table">
+        <tr>
+            <td>
+                Назание теста
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.TestName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Количество вопросов
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CountQuestions)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Количество правельных ответов
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CountCorrectAnswers)
+            </td>
+        </tr>
+    </table>   
+</div>
