@@ -1,0 +1,51 @@
+﻿@model IEnumerable<WebApplication4.Models.Document>
+
+@{ 
+    Layout = null;
+    var m = Model.ToList();
+}
+
+@* @Html.DisplayNameFor(model => model.Name)*@
+
+
+
+<h1>TTT</h1>
+
+<div id="bodyTest">
+    @Html.Raw(Model.ToList().FirstOrDefault().Data)
+</div>
+
+<div id="footTest" class="modal-footer">
+    <a class="btn btn-light" onclick="NextStep()">NEXT</a>
+</div>
+
+<script>
+    debugger
+    var arr = [];
+
+    @foreach (var item in m)
+    {
+       @:arr.push("@Html.Raw(item.Data)");       
+    }
+  
+    var i = 1;
+    function NextStep() {
+        debugger
+        if (i < @m.Count) {
+            $("#bodyTest").empty();
+            $("#bodyTest").append(arr[i++]);
+            if (i == @m.Count) {
+                 $("#footTest").empty();
+                 $("#footTest").append("<a class='btn btn-outline-success' onclick='Finish()'>Finish</a>");   
+            }
+        } 
+
+        Modal.Post2("StatementRegister", "ShowModal1");    
+    }
+
+    function Finish() {
+        alert("END");
+        $('#UniversalModalId').modal('hide');
+        $('#BodyModal').empty();
+    }
+</script>
